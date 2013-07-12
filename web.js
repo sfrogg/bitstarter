@@ -6,9 +6,8 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   var page = "";
-  var fd = fs.openSync('./index.html', "r");
-  page = fs.readSync(fd, 28, 0, "ascii");
-  response.send(page);
+  page = fs.readFileSync('./index.html', "ascii");
+  response.send(page.toString());
 });
 
 var port = process.env.PORT || 5000;
