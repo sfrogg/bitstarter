@@ -5,7 +5,7 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  var page = "";
+  var page = Buffer();
   page = fs.readFileSync('./index.html', "ascii");
   response.send(page.toString());
 });
