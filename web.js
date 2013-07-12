@@ -6,7 +6,8 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   var page = "";
-  fs.readSync("./index.html", page);
+  var fd = fs.openSync('./index.html', "r");
+  page = fs.readSync(fd, 28, 0, "ascii");
   response.send(page);
 });
 
